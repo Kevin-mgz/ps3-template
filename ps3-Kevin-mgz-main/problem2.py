@@ -3,6 +3,7 @@ Problem 2: Temperature Converter
 Convert between Celsius and Fahrenheit temperatures.
 """
 
+
 def celsius_to_fahrenheit(celsius):
     """
     Convert Celsius to Fahrenheit.
@@ -15,7 +16,14 @@ def celsius_to_fahrenheit(celsius):
         float: Temperature in Fahrenheit
     """
     # TODO: Implement this function
-    pass
+
+    # my attempt
+
+    # define celsius variable
+
+    fahrenheit = (celsius * 9 / 5) + 32
+
+    return fahrenheit
 
 
 def fahrenheit_to_celsius(fahrenheit):
@@ -30,7 +38,9 @@ def fahrenheit_to_celsius(fahrenheit):
         float: Temperature in Celsius
     """
     # TODO: Implement this function
-    pass
+    celsius = (fahrenheit - 32) * 5 / 9
+
+    return celsius
 
 
 def temperature_converter():
@@ -43,15 +53,31 @@ def temperature_converter():
     """
     print("Temperature Converter")
     print("-" * 30)
+    try:
+        # TODO: Implement the interactive converter
+        # Remember to:
+        # - Get temperature value from user
+        temperature = float(
+            input(" entrez la température que vous souhaitez convertir:")
+        )
+        # - Get unit (C or F) from user
+        unit = input(
+            "Précisez quelle unité vous souhaitez convertir: C pour celsius ou F pour fahrenheit:"
+        )
+        # - Validate input
+        if unit.upper() == "C":
+            result = celsius_to_fahrenheit(temperature)
+            print(f"{temperature}°C = {result:.2f}°F")
+        elif unit.upper() == "F":
+            result = fahrenheit_to_celsius(temperature)
+            print(f"{temperature}°F = {result:.2f}°C")
+        # - Perform conversion
 
-    # TODO: Implement the interactive converter
-    # Remember to:
-    # - Get temperature value from user
-    # - Get unit (C or F) from user
-    # - Validate input
-    # - Perform conversion
-    # - Display result rounded to 2 decimal places
-    pass
+        # - Display result rounded to 2 decimal places
+        else:
+            print("❌ Unité invalide. Utilisez 'C' ou 'F'.")
+    except ValueError:
+        print("❌ Veuillez entrer un nombre valide pour la température.")
 
 
 # Test cases (DO NOT MODIFY)
